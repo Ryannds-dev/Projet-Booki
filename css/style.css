@@ -16,6 +16,7 @@
 body {
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 header {
@@ -25,13 +26,13 @@ header {
 }
 
 header img {
-  height: 50%;
-  width: 5%;
+  height: 19px;
 }
 
 header ul {
   display: flex;
   gap: 100px;
+  /* parce que la liste est vraiment "collée au bord haut donc il faut enlever la marge de base" */
   margin-top: 0;
 }
 
@@ -82,6 +83,7 @@ form input {
   padding-left: 10px;
   height: 100%;
   border: none;
+  /* Pour ne pas que ça mette la bordure de base en gras quand on clique dedans */
   outline: none;
 }
 
@@ -96,7 +98,6 @@ form input {
 
 .filtres {
   display: flex;
-  justify-content: sapce-between;
   align-items: center;
   gap: 20px;
   margin: 15px 0 15px 0;
