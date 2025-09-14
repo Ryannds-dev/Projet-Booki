@@ -202,13 +202,24 @@ a {
   width: 65%;
 }
 
+.hebergements-cards {
+  /* PARCE QUE c'est le a qui entoure toutes les cards donc c'est lui qui applique le flex */
+  display: flex;
+  /* pour que les cards passent à la ligne suivante s'il n'y a pas assez de place */
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.hebergements-cards a {
+  width: 30%;
+}
+
 .hebergements-cards .card {
   /* DISPLAY FLEX TRES IMPORTANT POUR LA BONNE REPARTITION DES ELEMENTS DEDANS */
   display: flex;
   flex-direction: column;
   margin-top: 33px;
-  margin-left: 33px;
-  margin-right: 33px;
+  width: 100%;
 }
 
 .hebergements-cards img {
