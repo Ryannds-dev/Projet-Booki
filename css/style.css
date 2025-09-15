@@ -19,6 +19,7 @@ body {
   margin: 0;
 }
 
+/* ************************** HEADER ************************** */
 header {
   display: flex;
   justify-content: space-between;
@@ -60,7 +61,7 @@ header li:hover {
 header li:hover::before {
   opacity: 1;
 }
-
+/* ************************** FORMULAIRE RECHERCHE ************************** */
 form {
   display: inline-flex;
   height: 40px;
@@ -96,6 +97,8 @@ form input {
   cursor: pointer;
 }
 
+/* ************************** FILTRES ************************** */
+
 .filtres {
   display: flex;
   align-items: center;
@@ -112,6 +115,7 @@ form input {
   padding: 10px;
   height: 20px;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .un-filtre:hover {
@@ -122,6 +126,8 @@ form input {
   margin: 10px;
   user-select: none;
 }
+
+/* ************************** INFO ************************** */
 
 .info-ville {
   display: flex;
@@ -143,6 +149,7 @@ form input {
 .info-ville .fa-info {
   transform: scale(0.6);
 }
+/* ************************** INFO FIN ************************** */
 
 /* un-filtre .main-container {
   width: 100%;
@@ -211,6 +218,7 @@ a {
 }
 
 .hebergements-cards a {
+  cursor: pointer;
   width: 30%;
 }
 
@@ -218,8 +226,13 @@ a {
   /* DISPLAY FLEX TRES IMPORTANT POUR LA BONNE REPARTITION DES ELEMENTS DEDANS */
   display: flex;
   flex-direction: column;
-  margin-top: 33px;
+
+  margin: 33px 0;
   width: 100%;
+  /* TRES IMPORTANT DE DEFINIR UNE HAUTEUR SINON LA TAILLE DE LA CARTE CHANGE QUAND LE TEXTE VA A LA LIGNE */
+  height: 210px;
+  /* BOX SIZING BORDER BOX TRES IMPORTANT POUR QUE LA CARTE NE DEPASSE PAS DU a DONC UN BON PAS PRIS EN COMPTE */
+  box-sizing: border-box;
 }
 
 .hebergements-cards img {
@@ -232,12 +245,7 @@ a {
 }
 
 .hebergements-cards .card-content {
-  width: 67%;
   padding-left: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
 }
 
 .hebergements-cards .card-title {
@@ -295,6 +303,46 @@ a {
 
 .populaires-cards .card-rating {
   margin-bottom: 5px;
+}
+
+/* ************************** Activités ************************** */
+
+.activites {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.activites-cards {
+  display: flex;
+  justify-content: space-around;
+  /* gap: 120px; */
+}
+.activites-cards a {
+  /* SI TU VEUX APPLIQUER UNE WIDTH A UNE BALISE a IL FAUT DISPLAY BLOCK ET PAS INLINE */
+  /* ça fonctionne ici parce que t'as appliqué un display flex avant */
+  width: 20%;
+}
+
+.activites-cards .card {
+  display: flex;
+  flex-direction: column;
+  margin: 33px 0;
+  height: 439px;
+  /* PADDING 0 POUR RETIRER L'EFFET DE BORDURE BLANCHE */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.activites-cards img {
+  /* object-fit: cover; */
+  width: 100%;
+  height: 380px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.activites-cards .card-content {
+  padding-left: 15px;
 }
 
 /* Le code ci-dessous correspond à la version responsive uniquement */
