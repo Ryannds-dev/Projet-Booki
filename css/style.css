@@ -19,6 +19,14 @@ body {
   margin: 0;
 }
 
+/* J'AI REPRIS LES PROPRIETES DE un-filtre .main-container qui étaient déjà là de base mais je ne savais pas à quoi ça correspondait c'était bizarre */
+.main-container {
+  max-width: 1440px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 /* ************************** HEADER ************************** */
 header {
   display: flex;
@@ -81,6 +89,7 @@ form {
 
 form input {
   font-weight: bold;
+  font-size: 18px;
   padding-left: 10px;
   height: 100%;
   border: none;
@@ -90,7 +99,7 @@ form input {
 
 .bouton-rechercher {
   background-color: #0065fc;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
   color: white;
   border: none;
@@ -104,6 +113,12 @@ form input {
   align-items: center;
   gap: 20px;
   margin: 15px 0 15px 0;
+  font-size: 18px;
+}
+
+/* attention aux font-size j'avais pas remarqué la différence pour le formulaire */
+.filtres .card-title {
+  font-size: 18px;
 }
 
 .un-filtre {
@@ -122,9 +137,10 @@ form input {
   background-color: var(--filter-bg-color);
 }
 
-.un-filtre h3 {
+.un-filtre .card-title {
   margin: 10px;
   user-select: none;
+  font-size: 17px;
 }
 
 /* ************************** INFO ************************** */
@@ -310,11 +326,12 @@ a {
 .activites {
   margin-top: 60px;
   margin-bottom: 60px;
+  padding: 30px;
 }
 
 .activites-cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   /* gap: 120px; */
 }
 .activites-cards a {
@@ -330,6 +347,8 @@ a {
   height: 439px;
   /* PADDING 0 POUR RETIRER L'EFFET DE BORDURE BLANCHE */
   padding: 0;
+  /* margin-left important pour mieux aligner */
+  margin-left: 15px;
   box-sizing: border-box;
 }
 
