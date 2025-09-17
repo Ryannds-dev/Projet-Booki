@@ -332,23 +332,21 @@ a {
 .activites-cards {
   display: flex;
   justify-content: space-between;
-  /* gap: 120px; */
 }
 .activites-cards a {
   /* SI TU VEUX APPLIQUER UNE WIDTH A UNE BALISE a IL FAUT DISPLAY BLOCK ET PAS INLINE */
   /* ça fonctionne ici parce que t'as appliqué un display flex avant */
-  width: 20%;
+  width: 23%;
 }
 
 .activites-cards .card {
+  /* ATTENTION JE N'AVAIS PAS VU MAIS LA PREMIERE CARTE DOIT BIEN ETRE ALIGNEE AVEC ACTIVITE TITRE ET PAREIL A LA FIN */
   display: flex;
   flex-direction: column;
   margin: 33px 0;
   height: 439px;
   /* PADDING 0 POUR RETIRER L'EFFET DE BORDURE BLANCHE */
   padding: 0;
-  /* margin-left important pour mieux aligner */
-  margin-left: 15px;
   box-sizing: border-box;
 }
 
@@ -370,7 +368,9 @@ footer {
   background-color: var(--main-bg-color);
   padding: 30px;
   display: flex;
-  justify-content: space-around;
+  /* POUR BIEN RESPECTER MAQUETTE */
+  justify-content: flex-start;
+  gap: 300px;
 }
 
 /* Le code ci-dessous correspond à la version responsive uniquement */
