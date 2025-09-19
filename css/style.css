@@ -88,7 +88,6 @@ header li:hover::before {
 form {
   display: inline-flex;
   height: 40px;
-  overflow: hidden;
   border-radius: 15px;
   border: 1px solid var(--main-bg-color);
   /* je n'avais pas fait attention aux marge en haut et en bas avant */
@@ -98,7 +97,7 @@ form {
 .fa-location-dot {
   color: rgb(25, 25, 25);
   background-color: var(--main-bg-color);
-  border-radius: 10 10 10 0;
+  border-radius: 15px 0 0 15px;
   padding: 15px;
   display: flex;
   align-items: center;
@@ -121,6 +120,7 @@ form input {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 0 15px 15px 0;
 }
 
 .bouton-rechercher i {
@@ -195,13 +195,6 @@ form input {
 }
 /* ************************** INFO FIN ************************** */
 
-/* un-filtre .main-container {
-  width: 100%;
-  max-width: 1440px;
-  padding: 0 50px;
-  box-sizing: border-box;
-} */
-
 a {
   color: inherit;
   text-decoration: none;
@@ -258,7 +251,7 @@ a {
   display: flex;
   /* pour que les cards passent à la ligne suivante s'il n'y a pas assez de place */
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .hebergements-cards a {
@@ -272,7 +265,6 @@ a {
   flex-direction: column;
 
   margin: 33px 0;
-  width: 100%;
   /* TRES IMPORTANT DE DEFINIR UNE HAUTEUR SINON LA TAILLE DE LA CARTE CHANGE QUAND LE TEXTE VA A LA LIGNE */
   height: 210px;
 }
@@ -400,6 +392,10 @@ footer {
   gap: 300px;
 }
 
+footer section {
+  width: 33%;
+}
+
 /* Le code ci-dessous correspond à la version responsive uniquement */
 
 /****** Media queries ***********/
@@ -410,9 +406,12 @@ footer {
     align-items: flex-start;
   }
 
-  .filtres .card-title {
+  .filtres h3 {
     /* pour respecter distance entre h3 et filtres de la maquette */
     margin-bottom: 0;
+
+    /* CORRECTION D'APRES MENTORAT pour que les icones et les h3 s'alignent bien */
+    padding: 0 5px;
   }
   .hebergements-and-populaires {
     flex-direction: column;
@@ -475,15 +474,20 @@ footer {
     margin-top: 33px;
   }
 
-  header img {
-  }
-
   header ul {
-    /* width: 100%; */
+    width: 100%;
     margin-top: 33px;
     justify-content: center;
     /* je ne sais pas d'où ça vient mais en inspectant j'ai vu un padding à gauche de hébergements de nav de 40px donc je dois le retirer */
     padding-left: 0px;
+    text-align: center;
+
+    /* POUR QUE LES DEUX LI SOIENT collés */
+    gap: 0px;
+  }
+
+  header a {
+    width: 100%;
   }
 
   header li::before {
@@ -502,9 +506,22 @@ footer {
     background: var(--main-color);
   }
 
+  form {
+    width: 100%;
+  }
+
+  form input {
+    /* pour ne pas que le bouton de recherche s'aplatisse */
+    width: 90%;
+  }
+
   .bouton-rechercher {
     border-radius: 15px;
     padding: 15px;
+    display: flex;
+    height: 100%;
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
   .bouton-rechercher .texte {
     display: none;
@@ -521,7 +538,7 @@ footer {
   }
 
   .groupe-filtres .un-filtre {
-    width: 40%;
+    flex: 40%;
   }
 
   .un-filtre .card-title {
