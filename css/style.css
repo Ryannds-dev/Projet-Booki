@@ -22,6 +22,7 @@ body {
 /* J'AI REPRIS LES PROPRIETES DE un-filtre .main-container qui étaient déjà là de base mais je ne savais pas à quoi ça correspondait c'était bizarre */
 .main-container {
   max-width: 1440px;
+  min-width: 320px;
   padding: 0 50px;
   box-sizing: border-box;
   width: 100%;
@@ -32,6 +33,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* je n'avais pas fait attention à la marge entre header et sous header */
+  margin-bottom: 40px;
 }
 
 header img {
@@ -62,6 +65,18 @@ header li:before {
   margin-bottom: 10px;
 }
 
+header li:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: var(--main-bg-color);
+  display: none;
+  opacity: 0;
+  transition: all 0.2s;
+  position: top;
+  margin-top: 10px;
+}
+
 header li:hover {
   color: var(--main-color);
 }
@@ -74,8 +89,10 @@ form {
   display: inline-flex;
   height: 40px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 1px solid var(--main-bg-color);
+  /* je n'avais pas fait attention aux marge en haut et en bas avant */
+  margin: 10px 0;
 }
 
 .fa-location-dot {
@@ -106,19 +123,29 @@ form input {
   cursor: pointer;
 }
 
+.bouton-rechercher i {
+  display: none;
+  color: white;
+}
+
 /* ************************** FILTRES ************************** */
 
 .filtres {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin: 15px 0 15px 0;
+  margin: 15px 0;
   font-size: 18px;
 }
 
 /* attention aux font-size j'avais pas remarqué la différence pour le formulaire */
 .filtres .card-title {
   font-size: 18px;
+}
+
+.groupe-filtres {
+  display: flex;
+  gap: 10px;
 }
 
 .un-filtre {
@@ -149,6 +176,7 @@ form input {
   display: flex;
   align-items: center;
   gap: 5px;
+  margin-bottom: 15px;
 }
 
 .info-ville i {
@@ -247,8 +275,6 @@ a {
   width: 100%;
   /* TRES IMPORTANT DE DEFINIR UNE HAUTEUR SINON LA TAILLE DE LA CARTE CHANGE QUAND LE TEXTE VA A LA LIGNE */
   height: 210px;
-  /* BOX SIZING BORDER BOX TRES IMPORTANT POUR QUE LA CARTE NE DEPASSE PAS DU a DONC UN BON PAS PRIS EN COMPTE */
-  box-sizing: border-box;
 }
 
 .hebergements-cards img {
@@ -262,6 +288,7 @@ a {
 
 .hebergements-cards .card-content {
   padding-left: 15px;
+  box-sizing: border-box;
 }
 
 .hebergements-cards .card-title {
@@ -378,6 +405,15 @@ footer {
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
+  .filtres {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filtres .card-title {
+    /* pour respecter distance entre h3 et filtres de la maquette */
+    margin-bottom: 0;
+  }
   .hebergements-and-populaires {
     flex-direction: column;
   }
@@ -408,9 +444,134 @@ footer {
   .populaires-cards .card-subtitle {
     font-size: 13px;
   }
+
+  .activites-cards .card {
+    height: 270px;
+  }
+
+  .activites-cards img {
+    height: 200px;
+  }
+
+  footer {
+    gap: 150px;
+  }
 }
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
-  /* ... */
+  .main-container {
+    padding: 0;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    margin-top: 33px;
+  }
+
+  header img {
+  }
+
+  header ul {
+    /* width: 100%; */
+    margin-top: 33px;
+    justify-content: center;
+    /* je ne sais pas d'où ça vient mais en inspectant j'ai vu un padding à gauche de hébergements de nav de 40px donc je dois le retirer */
+    padding-left: 0px;
+  }
+
+  header li::before {
+    display: none;
+  }
+
+  header li::after {
+    display: block;
+    opacity: 1;
+    /* position: absolute;
+    transform: translateX(-50%);
+    width: 80%; */
+  }
+
+  header li:hover::after {
+    background: var(--main-color);
+  }
+
+  .bouton-rechercher {
+    border-radius: 15px;
+    padding: 15px;
+  }
+  .bouton-rechercher .texte {
+    display: none;
+  }
+
+  .bouton-rechercher i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .groupe-filtres {
+    flex-wrap: wrap;
+  }
+
+  .groupe-filtres .un-filtre {
+    width: 40%;
+  }
+
+  .un-filtre .card-title {
+    margin: 10px;
+    font-size: 14px;
+  }
+
+  .hebergements-and-populaires {
+    flex-direction: column-reverse;
+  }
+
+  .hebergements-and-populaires .populaires {
+    border-radius: 0;
+    margin-bottom: 40px;
+  }
+
+  .hebergements-and-populaires .populaires-cards {
+    flex-direction: column;
+  }
+
+  .hebergements-and-populaires .populaires-cards a {
+    width: 100%;
+  }
+
+  .hebergements-and-populaires .hebergements {
+    background-color: white;
+  }
+
+  .hebergements-and-populaires .hebergements-cards {
+    flex-direction: column;
+  }
+
+  .hebergements-and-populaires .hebergements-cards a {
+    width: 100%;
+  }
+
+  .activites .activites-cards {
+    flex-direction: column;
+  }
+
+  .activites .activites-cards a {
+    width: 100%;
+  }
+
+  .activites .activites-cards .card {
+    margin: 15px 0;
+  }
+
+  footer {
+    gap: 10px;
+    flex-direction: column;
+  }
 }
