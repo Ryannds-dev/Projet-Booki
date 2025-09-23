@@ -61,7 +61,6 @@ header li:before {
   display: block;
   opacity: 0;
   transition: all 0.2s;
-  position: top;
   margin-bottom: 10px;
 }
 
@@ -73,7 +72,6 @@ header li:after {
   display: none;
   opacity: 0;
   transition: all 0.2s;
-  position: top;
   margin-top: 10px;
 }
 
@@ -84,13 +82,14 @@ header li:hover {
 header li:hover::before {
   opacity: 1;
 }
+
 /* ************************** FORMULAIRE RECHERCHE ************************** */
 form {
-  display: inline-flex;
-  height: 40px;
+  display: flex;
+  height: 49px;
   border-radius: 15px;
   border: 1px solid var(--main-bg-color);
-  /* je n'avais pas fait attention aux marge en haut et en bas avant */
+  /* je n'avais pas fait attention aux marges en haut et en bas avant */
   margin: 10px 0;
 }
 
@@ -107,14 +106,13 @@ form input {
   font-weight: bold;
   font-size: 18px;
   padding-left: 10px;
-  height: 100%;
   border: none;
   /* Pour ne pas que ça mette la bordure de base en gras quand on clique dedans */
   outline: none;
 }
 
 .bouton-rechercher {
-  background-color: #0065fc;
+  background-color: var(--main-color);
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -140,7 +138,9 @@ form input {
 
 /* attention aux font-size j'avais pas remarqué la différence pour le formulaire */
 .filtres .card-title {
-  font-size: 18px;
+  margin: 10px;
+  user-select: none;
+  font-size: 17px;
 }
 
 .groupe-filtres {
@@ -155,19 +155,13 @@ form input {
   border: 2px solid var(--main-bg-color);
   border-radius: 25px;
   padding: 10px;
-  height: 20px;
+  height: 19px;
   transition: all 0.2s;
   cursor: pointer;
 }
 
 .un-filtre:hover {
   background-color: var(--filter-bg-color);
-}
-
-.un-filtre .card-title {
-  margin: 10px;
-  user-select: none;
-  font-size: 17px;
 }
 
 /* ************************** INFO ************************** */
@@ -180,19 +174,16 @@ form input {
 }
 
 .info-ville i {
-  border: 2px solid var(--main-bg-color);
+  border: 1px solid var(--main-bg-color);
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 0.5px;
 }
 
-.info-ville .fa-info {
-  transform: scale(0.6);
-}
 /* ************************** INFO FIN ************************** */
 
 a {
@@ -274,8 +265,6 @@ a {
   height: 124px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  /* il faut utiliser object fit après avoir rencontré un problème apparemment mais je ne vois pas quoi */
-  /* object-fit: cover; */
 }
 
 .hebergements-cards .card-content {
@@ -285,7 +274,7 @@ a {
 
 .hebergements-cards .card-title {
   margin-top: 10px;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .hebergements-cards .card-subtitle {
@@ -366,12 +355,9 @@ a {
   height: 439px;
   /* PADDING 0 POUR RETIRER L'EFFET DE BORDURE BLANCHE */
   padding: 0;
-  box-sizing: border-box;
 }
 
 .activites-cards img {
-  /* object-fit: cover; */
-  width: 100%;
   height: 380px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -406,13 +392,12 @@ footer section {
     align-items: flex-start;
   }
 
-  .filtres h3 {
-    /* pour respecter distance entre h3 et filtres de la maquette */
-    margin-bottom: 0;
-
+  .un-filtre .card-title {
+    font-size: 16px;
     /* CORRECTION D'APRES MENTORAT pour que les icones et les h3 s'alignent bien */
     padding: 0 5px;
   }
+
   .hebergements-and-populaires {
     flex-direction: column;
   }
@@ -434,14 +419,6 @@ footer section {
 
   .populaires-cards a {
     width: 30%;
-  }
-
-  .populaires-cards .card-title {
-    font-size: 14px;
-  }
-
-  .populaires-cards .card-subtitle {
-    font-size: 13px;
   }
 
   .activites-cards .card {
@@ -470,14 +447,12 @@ footer section {
   header {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     margin-top: 33px;
   }
 
   header ul {
     width: 100%;
     margin-top: 33px;
-    justify-content: center;
     /* je ne sais pas d'où ça vient mais en inspectant j'ai vu un padding à gauche de hébergements de nav de 40px donc je dois le retirer */
     padding-left: 0px;
     text-align: center;
@@ -497,9 +472,6 @@ footer section {
   header li::after {
     display: block;
     opacity: 1;
-    /* position: absolute;
-    transform: translateX(-50%);
-    width: 80%; */
   }
 
   header li:hover::after {
@@ -511,15 +483,13 @@ footer section {
   }
 
   form input {
-    /* pour ne pas que le bouton de recherche s'aplatisse */
-    width: 90%;
+    width: 100%;
   }
 
   .bouton-rechercher {
     border-radius: 15px;
     padding: 15px;
     display: flex;
-    height: 100%;
 
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
@@ -529,8 +499,6 @@ footer section {
 
   .bouton-rechercher i {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .groupe-filtres {
@@ -542,7 +510,6 @@ footer section {
   }
 
   .un-filtre .card-title {
-    margin: 10px;
     font-size: 14px;
   }
 
