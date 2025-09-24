@@ -1,385 +1,392 @@
 /****** General ***********/
 * {
-  font-family: "Raleway", sans-serif;
+    font-family: "Raleway", sans-serif;
 }
 
 :root {
-  --main-color: #0065fc;
-  --main-bg-color: #f2f2f2;
-  --filter-bg-color: #deebff;
+    --main-color: #0065fc;
+    --main-bg-color: #f2f2f2;
+    --filter-bg-color: #deebff;
 }
 
 .fa-solid {
-  color: var(--main-color);
+    color: var(--main-color);
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  margin: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
 }
 
 /* J'AI REPRIS LES PROPRIETES DE un-filtre .main-container qui étaient déjà là de base mais je ne savais pas à quoi ça correspondait c'était bizarre */
 .main-container {
-  max-width: 1440px;
-  min-width: 320px;
-  padding: 0 50px;
-  box-sizing: border-box;
-  width: 100%;
+    max-width: 1440px;
+    min-width: 320px;
+    padding: 0 50px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 /* ************************** HEADER ************************** */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* je n'avais pas fait attention à la marge entre header et sous header */
-  margin-bottom: 40px;
+    /* je n'avais pas fait attention à la marge entre header et sous header */
+    margin-bottom: 40px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header img {
-  height: 19px;
+    height: 19px;
 }
 
 header ul {
-  display: flex;
-  gap: 100px;
-  /* parce que la liste est vraiment "collée au bord haut donc il faut enlever la marge de base" */
-  margin-top: 0;
+    display: flex;
+    gap: 100px;
+    /* parce que la liste est vraiment "collée au bord haut donc il faut enlever la marge de base" */
+    margin-top: 0;
 }
 
 header li {
-  list-style: none;
-  cursor: pointer;
+    list-style: none;
+    cursor: pointer;
 }
 
 header li:before {
-  content: "";
-  width: 100%;
-  height: 2px;
-  background: var(--main-color);
-  display: block;
-  opacity: 0;
-  transition: all 0.2s;
-  margin-bottom: 10px;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--main-color);
+    display: block;
+    opacity: 0;
+    transition: all 0.2s;
+    margin-bottom: 10px;
 }
 
 header li:after {
-  content: "";
-  width: 100%;
-  height: 2px;
-  background: var(--main-bg-color);
-  display: none;
-  opacity: 0;
-  transition: all 0.2s;
-  margin-top: 10px;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--main-bg-color);
+    display: none;
+    opacity: 0;
+    transition: all 0.2s;
+    margin-top: 10px;
 }
 
 header li:hover {
-  color: var(--main-color);
+    color: var(--main-color);
 }
 
 header li:hover::before {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* ************************** FORMULAIRE RECHERCHE ************************** */
 form {
-  display: flex;
-  height: 49px;
-  border-radius: 15px;
-  border: 1px solid var(--main-bg-color);
-  /* je n'avais pas fait attention aux marges en haut et en bas avant */
-  margin: 10px 0;
+    display: flex;
+    height: 49px;
+    border-radius: 15px;
+    /* border: 1px solid var(--main-bg-color); */
+    /* je n'avais pas fait attention aux marges en haut et en bas avant */
+    margin: 10px 0;
 }
 
 .fa-location-dot {
-  color: rgb(25, 25, 25);
-  background-color: var(--main-bg-color);
-  border-radius: 15px 0 0 15px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
+    color: rgb(25, 25, 25);
+    background-color: var(--main-bg-color);
+    border-radius: 15px 0 0 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
 }
 
 form input {
-  font-weight: bold;
-  font-size: 18px;
-  padding-left: 10px;
-  border: none;
-  /* Pour ne pas que ça mette la bordure de base en gras quand on clique dedans */
-  outline: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px;
+    /* border: none; */
+    /* Pour ne pas que ça mette la bordure de base en gras quand on clique dedans */
+    /* outline: none; */
+    border: 1px solid var(--main-bg-color)
 }
 
 .bouton-rechercher {
-  background-color: var(--main-color);
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 0 15px 15px 0;
+    background-color: var(--main-color);
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 15px 15px 0;
 }
 
 .bouton-rechercher i {
-  display: none;
-  color: white;
+    display: none;
+    color: white;
 }
 
 /* ************************** FILTRES ************************** */
 
 .filtres {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin: 15px 0;
-  font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 15px 0;
+    font-size: 18px;
 }
 
 /* attention aux font-size j'avais pas remarqué la différence pour le formulaire */
 .filtres .card-title {
-  margin: 10px;
-  user-select: none;
-  font-size: 17px;
+    margin: 10px;
+    user-select: none;
+    font-size: 17px;
 }
 
 .groupe-filtres {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .un-filtre {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid var(--main-bg-color);
-  border-radius: 25px;
-  padding: 10px;
-  height: 19px;
-  transition: all 0.2s;
-  cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--main-bg-color);
+    border-radius: 25px;
+    padding: 10px;
+    height: 19px;
+    transition: all 0.2s;
+    cursor: pointer;
 }
 
 .un-filtre:hover {
-  background-color: var(--filter-bg-color);
+    background-color: var(--filter-bg-color);
 }
 
 /* ************************** INFO ************************** */
 
 .info-ville {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
 }
 
 .info-ville i {
-  border: 1px solid var(--main-bg-color);
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5px;
+    border: 1px solid var(--main-bg-color);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5px;
+    min-width: 24px;
 }
 
 /* ************************** INFO FIN ************************** */
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 .section-title {
-  margin: 0;
-  font-size: 22px;
+    margin: 0;
+    font-size: 22px;
 }
 
 .card {
-  background-color: white;
-  border-radius: 20px;
-  padding: 5px;
-  filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
 }
 
 .card img {
-  object-fit: cover;
+    object-fit: cover;
 }
 
 .card-title {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 .euro {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .neutral-star {
-  color: var(--main-bg-color);
+    color: var(--main-bg-color);
 }
 
 /****** Hebergements And Populaires ***********/
 .hebergements-and-populaires {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .hebergements-and-populaires section {
-  background-color: var(--main-bg-color);
-  border-radius: 20px;
-  padding: 30px;
-  box-sizing: border-box;
+    background-color: var(--main-bg-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 /****** Hebergements ***********/
 .hebergements {
-  width: 65%;
+    width: 65%;
 }
 
 .hebergements-cards {
-  /* PARCE QUE c'est le a qui entoure toutes les cards donc c'est lui qui applique le flex */
-  display: flex;
-  /* pour que les cards passent à la ligne suivante s'il n'y a pas assez de place */
-  flex-wrap: wrap;
-  justify-content: space-between;
+    /* PARCE QUE c'est le a qui entoure toutes les cards donc c'est lui qui applique le flex */
+    display: flex;
+    /* pour que les cards passent à la ligne suivante s'il n'y a pas assez de place */
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .hebergements-cards a {
-  cursor: pointer;
-  width: 30%;
+    cursor: pointer;
+    width: 30%;
 }
 
 .hebergements-cards .card {
-  /* DISPLAY FLEX TRES IMPORTANT POUR LA BONNE REPARTITION DES ELEMENTS DEDANS */
-  display: flex;
-  flex-direction: column;
+    /* DISPLAY FLEX TRES IMPORTANT POUR LA BONNE REPARTITION DES ELEMENTS DEDANS */
+    display: flex;
+    flex-direction: column;
 
-  margin: 33px 0;
-  /* TRES IMPORTANT DE DEFINIR UNE HAUTEUR SINON LA TAILLE DE LA CARTE CHANGE QUAND LE TEXTE VA A LA LIGNE */
-  height: 210px;
+    margin: 33px 0;
+    /* TRES IMPORTANT DE DEFINIR UNE HAUTEUR SINON LA TAILLE DE LA CARTE CHANGE QUAND LE TEXTE VA A LA LIGNE */
+    height: 210px;
 }
 
 .hebergements-cards img {
-  width: 100%;
-  height: 124px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+    width: 100%;
+    height: 124px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .hebergements-cards .card-content {
-  padding-left: 15px;
-  box-sizing: border-box;
+    padding-left: 15px;
+    box-sizing: border-box;
 }
 
 .hebergements-cards .card-title {
-  margin-top: 10px;
-  margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .hebergements-cards .card-subtitle {
-  margin: 0;
+    margin: 0;
 }
 
 .hebergements-cards .card-rating {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
+
 /****** Populaires ***********/
 .populaires {
-  width: 32%;
+    width: 32%;
 }
 
 .populaires-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .populaires-cards .card {
-  display: flex;
-  margin-top: 33px;
+    display: flex;
+    margin-top: 33px;
 }
 
 .populaires-cards img {
-  width: 33%;
-  height: 136px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+    width: 33%;
+    height: 136px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .populaires-cards .card-content {
-  width: 67%;
-  padding-left: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
+    width: 67%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .populaires-cards .card-title {
-  margin-top: 10px;
-  margin-bottom: 4px;
+    margin-top: 10px;
+    margin-bottom: 4px;
 }
 
 .populaires-cards .card-subtitle {
-  margin: 0;
+    margin: 0;
 }
 
 .populaires-cards .card-rating {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 /* ************************** Activités ************************** */
 
 .activites {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  padding: 30px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding: 30px;
 }
 
 .activites-cards {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
+
 .activites-cards a {
-  /* SI TU VEUX APPLIQUER UNE WIDTH A UNE BALISE a IL FAUT DISPLAY BLOCK ET PAS INLINE */
-  /* ça fonctionne ici parce que t'as appliqué un display flex avant */
-  width: 23%;
+    /* SI TU VEUX APPLIQUER UNE WIDTH A UNE BALISE a IL FAUT DISPLAY BLOCK ET PAS INLINE */
+    /* ça fonctionne ici parce que t'as appliqué un display flex avant */
+    width: 23%;
 }
 
 .activites-cards .card {
-  /* ATTENTION JE N'AVAIS PAS VU MAIS LA PREMIERE CARTE DOIT BIEN ETRE ALIGNEE AVEC ACTIVITE TITRE ET PAREIL A LA FIN */
-  display: flex;
-  flex-direction: column;
-  margin: 33px 0;
-  height: 439px;
-  /* PADDING 0 POUR RETIRER L'EFFET DE BORDURE BLANCHE */
-  padding: 0;
+    /* ATTENTION JE N'AVAIS PAS VU MAIS LA PREMIERE CARTE DOIT BIEN ETRE ALIGNEE AVEC ACTIVITE TITRE ET PAREIL A LA FIN */
+    display: flex;
+    flex-direction: column;
+    margin: 33px 0;
+    height: 439px;
+    /* PADDING 0 POUR RETIRER L'EFFET DE BORDURE BLANCHE */
+    padding: 0;
 }
 
 .activites-cards img {
-  height: 380px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+    height: 380px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .activites-cards .card-content {
-  padding-left: 15px;
+    padding-left: 15px;
 }
 
 /* ************************** Footer ************************** */
 
 footer {
-  background-color: var(--main-bg-color);
-  padding: 30px;
-  display: flex;
-  /* POUR BIEN RESPECTER MAQUETTE */
-  justify-content: flex-start;
-  gap: 300px;
+    background-color: var(--main-bg-color);
+    padding: 30px;
+    display: flex;
+    /* POUR BIEN RESPECTER MAQUETTE */
+    justify-content: flex-start;
+    /* gap: 300px; */
 }
 
 footer section {
-  width: 33%;
+    width: 33%;
 }
 
 /* Le code ci-dessous correspond à la version responsive uniquement */
@@ -387,175 +394,209 @@ footer section {
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
-  .filtres {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .filtres {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-  .un-filtre .card-title {
-    font-size: 16px;
-    /* CORRECTION D'APRES MENTORAT pour que les icones et les h3 s'alignent bien */
-    padding: 0 5px;
-  }
+    .un-filtre .card-title {
+        font-size: 16px;
+        /* CORRECTION D'APRES MENTORAT pour que les icones et les h3 s'alignent bien */
+        padding: 0 5px;
+    }
 
-  .hebergements-and-populaires {
-    flex-direction: column;
-  }
+    .hebergements-and-populaires {
+        flex-direction: column;
+    }
 
-  .hebergements {
-    width: 100%;
-  }
+    .hebergements {
+        width: 100%;
+    }
 
-  .populaires {
-    width: 100%;
-    margin-top: 50px;
-  }
+    .populaires {
+        width: 100%;
+        margin-top: 50px;
+    }
 
-  .populaires-cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+    .populaires-cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
-  .populaires-cards a {
-    width: 30%;
-  }
+    .populaires-cards a {
+        width: 30%;
+    }
 
-  .activites-cards .card {
-    height: 270px;
-  }
+    .activites-cards .card {
+        height: 270px;
+    }
 
-  .activites-cards img {
-    height: 200px;
-  }
+    .activites-cards img {
+        height: 200px;
+    }
 
-  footer {
-    gap: 150px;
-  }
+    /* footer {
+        gap: 150px;
+    } */
 }
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
-  .main-container {
-    padding: 0;
-  }
+    .main-container {
+        padding: 0;
+    }
 
-  main {
-    padding: 20px;
-  }
+    /* main {
+        padding: 20px;
+    } */
 
-  header {
-    display: flex;
-    flex-direction: column;
-    margin-top: 33px;
-  }
+    header {
+        margin-top: 33px;
+        margin-bottom: 10px;
+    }
 
-  header ul {
-    width: 100%;
-    margin-top: 33px;
-    /* je ne sais pas d'où ça vient mais en inspectant j'ai vu un padding à gauche de hébergements de nav de 40px donc je dois le retirer */
-    padding-left: 0px;
-    text-align: center;
+    header nav {
+        display: flex;
+        flex-direction: column;
+    }
 
-    /* POUR QUE LES DEUX LI SOIENT collés */
-    gap: 0px;
-  }
+    header ul {
+        width: 100%;
+        margin-top: 33px;
+        /* je ne sais pas d'où ça vient mais en inspectant j'ai vu un padding à gauche de hébergements de nav de 40px donc je dois le retirer */
+        padding-left: 0px;
+        text-align: center;
 
-  header a {
-    width: 100%;
-  }
+        /* POUR QUE LES DEUX LI SOIENT collés */
+        gap: 0px;
+    }
 
-  header li::before {
-    display: none;
-  }
+    header a,
+    header li {
+        width: 100%;
+    }
 
-  header li::after {
-    display: block;
-    opacity: 1;
-  }
+    header li::before {
+        display: none;
+    }
 
-  header li:hover::after {
-    background: var(--main-color);
-  }
+    header li::after {
+        display: block;
+        opacity: 1;
+    }
 
-  form {
-    width: 100%;
-  }
+    header li:hover::after {
+        background: var(--main-color);
+    }
 
-  form input {
-    width: 100%;
-  }
+    .sous-header {
+        padding-top: 10px;
+        padding-bottom: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-  .bouton-rechercher {
-    border-radius: 15px;
-    padding: 15px;
-    display: flex;
+    form {
+        width: 100%;
+    }
 
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-  .bouton-rechercher .texte {
-    display: none;
-  }
+    form input {
+        width: 100%;
+    }
 
-  .bouton-rechercher i {
-    display: flex;
-  }
+    .bouton-rechercher {
+        border-radius: 15px;
+        padding: 15px;
+        display: flex;
+        margin-left: -13px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
 
-  .groupe-filtres {
-    flex-wrap: wrap;
-  }
+    .bouton-rechercher .texte {
+        display: none;
+    }
 
-  .groupe-filtres .un-filtre {
-    flex: 40%;
-  }
+    .bouton-rechercher i {
+        display: flex;
+    }
 
-  .un-filtre .card-title {
-    font-size: 14px;
-  }
+    .groupe-filtres {
+        flex-wrap: wrap;
+    }
 
-  .hebergements-and-populaires {
-    flex-direction: column-reverse;
-  }
+    .groupe-filtres .un-filtre {
+        flex: 40%;
+    }
 
-  .hebergements-and-populaires .populaires {
-    border-radius: 0;
-    margin-bottom: 40px;
-  }
+    .un-filtre .card-title {
+        font-size: 14px;
+    }
 
-  .hebergements-and-populaires .populaires-cards {
-    flex-direction: column;
-  }
+    .hebergements-and-populaires {
+        flex-direction: column-reverse;
+    }
 
-  .hebergements-and-populaires .populaires-cards a {
-    width: 100%;
-  }
+    .hebergements-and-populaires .populaires {
+        border-radius: 0;
+        margin-bottom: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-  .hebergements-and-populaires .hebergements {
-    background-color: white;
-  }
+    .hebergements-and-populaires .populaires-cards {
+        flex-direction: column;
+    }
 
-  .hebergements-and-populaires .hebergements-cards {
-    flex-direction: column;
-  }
+    .hebergements-and-populaires .populaires-cards a {
+        width: 100%;
+    }
 
-  .hebergements-and-populaires .hebergements-cards a {
-    width: 100%;
-  }
+    .hebergements-and-populaires .hebergements {
+        background-color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-  .activites .activites-cards {
-    flex-direction: column;
-  }
+    .hebergements-and-populaires .hebergements-cards {
+        flex-direction: column;
+        margin-top: 15px;
+    }
 
-  .activites .activites-cards a {
-    width: 100%;
-  }
+    .hebergements-and-populaires .hebergements-cards a {
+        width: 100%;
+    }
 
-  .activites .activites-cards .card {
-    margin: 15px 0;
-  }
+    .hebergements-cards .card {
+        margin-top: 0px;
+        margin-bottom: 15px;
+    }
 
-  footer {
-    gap: 10px;
-    flex-direction: column;
-  }
+    .activites {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .activites .activites-cards {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    .activites .activites-cards a {
+        width: 100%;
+    }
+
+    .activites .activites-cards .card {
+        margin-top: 0px;
+        margin-bottom: 15px;
+    }
+
+    footer {
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    footer section {
+        width: 100%;
+    }
 }
